@@ -3,7 +3,7 @@ import { BrowserRouter, Route, Routes } from "react-router-dom";
 import { Toaster as Sonner } from "sonner";
 import { TooltipProvider } from "@/components/ui/tooltip";
 import Index from "./pages/index.tsx";
-import NotFound from "./pages/NotFound.tsx";
+import NotFound from "./pages/Notfound.tsx";
 
 const queryClient = new QueryClient();
 
