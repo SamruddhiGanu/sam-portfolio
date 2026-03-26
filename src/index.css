@@ -1,0 +1,134 @@
+@import url('https://fonts.googleapis.com/css2?family=Caveat:wght@400;500;600;700&family=Patrick+Hand&family=Libre+Baskerville:ital,wght@0,400;0,700;1,400&display=swap');
+
+@import "tailwindcss";
+
+@layer base {
+  :root {
+    --background: 40 33% 96%;
+    --foreground: 30 10% 20%;
+    --card: 40 40% 94%;
+    --card-foreground: 30 10% 20%;
+    --popover: 40 40% 94%;
+    --popover-foreground: 30 10% 20%;
+    --primary: 30 40% 45%;
+    --primary-foreground: 40 33% 96%;
+    --secondary: 20 30% 88%;
+    --secondary-foreground: 30 10% 20%;
+    --muted: 35 25% 90%;
+    --muted-foreground: 30 10% 45%;
+    --accent: 350 45% 65%;
+    --accent-foreground: 40 33% 96%;
+    --destructive: 0 84.2% 60.2%;
+    --destructive-foreground: 210 40% 98%;
+    --border: 30 20% 82%;
+    --input: 30 20% 82%;
+    --ring: 30 40% 45%;
+    --radius: 0.5rem;
+
+    --diary-spine: 35 50% 35%;
+    --diary-page: 42 50% 93%;
+    --diary-cover: 25 30% 25%;
+    --diary-dots: 30 15% 78%;
+    --tape: 55 60% 85%;
+    --sticker-pink: 340 60% 80%;
+    --sticker-green: 140 35% 70%;
+    --sticker-blue: 210 50% 75%;
+
+    --sidebar-background: 0 0% 98%;
+    --sidebar-foreground: 240 5.3% 26.1%;
+    --sidebar-primary: 240 5.9% 10%;
+    --sidebar-primary-foreground: 0 0% 98%;
+    --sidebar-accent: 240 4.8% 95.9%;
+    --sidebar-accent-foreground: 240 5.9% 10%;
+    --sidebar-border: 220 13% 91%;
+    --sidebar-ring: 217.2 91.2% 59.8%;
+  }
+}
+
+@layer base {
+  * {
+    border-color: hsl(var(--border));
+  }
+  body {
+    background-color: hsl(var(--background));
+    color: hsl(var(--foreground));
+    font-family: 'Patrick Hand', cursive;
+  }
+}
+
+.font-handwritten {
+  font-family: 'Caveat', cursive;
+}
+
+.font-serif-display {
+  font-family: 'Libre Baskerville', serif;
+}
+
+.diary-page-dots {
+  background-image: radial-gradient(circle, hsl(var(--diary-dots)) 1px, transparent 1px);
+  background-size: 20px 20px;
+}
+
+.book-card {
+  perspective: 1200px;
+}
+
+.book-cover {
+  transform-style: preserve-3d;
+  transition: transform 0.8s cubic-bezier(0.4, 0, 0.2, 1);
+  transform-origin: left center;
+}
+
+.book-card:hover .book-cover {
+  transform: rotateY(-160deg);
+}
+
+.book-inner {
+  backface-visibility: hidden;
+  transform: rotateY(180deg);
+}
+
+.letter-envelope {
+  clip-path: polygon(0 0, 100% 0, 100% 70%, 50% 100%, 0 70%);
+}
+
+.letter-flap {
+  clip-path: polygon(0 0, 50% 50%, 100% 0);
+  transform-origin: top center;
+  transition: transform 0.6s ease;
+}
+
+.envelope-wrapper:hover .letter-flap {
+  transform: rotateX(180deg);
+}
+
+.envelope-wrapper:hover .letter-paper {
+  transform: translateY(-60px);
+}
+
+.letter-paper {
+  transition: transform 0.6s ease 0.2s;
+}
+
+/* Tape effect */
+.tape {
+  background: hsl(var(--tape));
+  opacity: 0.7;
+  transform: rotate(-2deg);
+}
+
+.tape-right {
+  transform: rotate(3deg);
+}
+
+/* Scrollbar styling */
+::-webkit-scrollbar {
+  width: 8px;
+}
+::-webkit-scrollbar-track {
+  background: hsl(var(--diary-page));
+}
+::-webkit-scrollbar-thumb {
+  background: hsl(var(--border));
+  border-radius: 4px;
+}
